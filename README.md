@@ -24,7 +24,9 @@ Newsroom runs as a team. A lead agent handles intake and delivery. Separate agen
 5. **Edit.** Boundaries, tone, filler, sensational phrasing, and coverage of each guest's asks.
 6. **Deliver.** The arc with timings, questions by act marked core or reserve, a fact sheet with sources, a boundary check, and open items to confirm with guests.
 
-Edits to a single question re-run only the Fact Desk and Editor on that question.
+Every desk runs as its own agent on every run, including revisions. The lead never drafts or checks its own work. Existing research or drafts go to the right desk as input, not around it. The Fact Desk marks anything it did not re-open this run as Unconfirmed. If subagents aren't available, Newsroom says so and asks before running single-agent.
+
+Edits to a single question re-run a fresh Fact Desk and Editor on that question.
 
 ## Install
 

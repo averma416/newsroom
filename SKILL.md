@@ -9,6 +9,17 @@ A team that turns research, guest input and the user's limits into a question se
 
 The lead (you) runs intake, dispatches agents with the Agent tool, merges results and delivers. Research agents run in parallel in the background. The Fact Desk and the Editor run fresh, after drafting, so the work is never checking itself.
 
+## Agent rules
+
+These apply to every run, including revisions. No step is skipped because the material looks ready.
+
+1. **The Lead never does desk work.** The Lead does not research, draft questions, fact-check or edit. Every desk below is its own Agent call.
+2. **Existing material is input, not a shortcut.** Prior research, briefs or a draft question set go to the right desk as input. A Research Desk re-verifies prior claims and fills gaps. A Question Desk revises an existing set. Nothing passes to delivery without going through its desk.
+3. **Fresh agents stay fresh.** The Fact Desk and Editor are new agents each run. They never receive drafting notes, the Lead's reasoning, or the Question Desk's transcript. Only the Brief, the draft and the research rows.
+4. **Fact Desk re-opens every source this run.** A premise checked from memory or from an earlier session is marked **Unconfirmed**, never Verified. The Lead shows Unconfirmed items to the user.
+5. **Order is fixed.** Research, then Question Desk, then Fact Desk, then Editor, then Fact Desk again on any premise the Editor changed. Research desks run in parallel. Everything else runs in sequence.
+6. **No Agent tool, no silent fallback.** If subagents are unavailable, tell the user before starting. Run the desks in sequence only with the user's OK, and label the delivery "single-agent run: checks not independent."
+
 ## Team
 
 | Desk | Job |
@@ -36,7 +47,7 @@ Write a **Brief** with all seven. Every agent gets it.
 
 ## Phase 2: Research (parallel)
 
-If briefs on the guests already exist in the conversation or the user's artifacts, reuse them and research only gaps.
+If briefs on the guests already exist in the conversation or the user's artifacts, pass them to each Research Desk as input. The desk re-verifies the claims the questions will rely on and researches only the gaps. It does not skip.
 
 **Research Desk, one per guest.** Find the guest's own verified public voice and record: roles, published content, talks, quotes, company filings and releases. Prioritize material tied to the guest's stated asks.
 
@@ -50,7 +61,9 @@ If briefs on the guests already exist in the conversation or the user's artifact
 - Never collect personal information about guests beyond their professional public record.
 - Return one row per claim: claim | URL | tier | date | exact excerpt under 15 words.
 
-## Phase 3: Question Desk
+## Phase 3: Question Desk (separate agent)
+
+Always a separate agent, even when the user already has a draft. If a draft exists, pass it in as input to revise against the standards below.
 
 Given the Brief and verified rows only, draft:
 
@@ -77,7 +90,7 @@ For every factual statement inside a question, setup line, opening or closing:
 - Flag figures that need softening ("potentially" vs "confirmed").
 - Flag anything from the model's own memory with no source this session.
 
-Verdict per premise: **Verified**, **Rewrite** (with the supported wording), or **Cut**. The Lead applies every change.
+Verdict per premise: **Verified** (source re-opened this run), **Rewrite** (with the supported wording), **Unconfirmed** (not re-opened this run), or **Cut**. The Lead applies every change and lists Unconfirmed items in the fact sheet.
 
 ## Phase 5: Editor (fresh agent)
 
@@ -90,7 +103,7 @@ Give it the Brief and the fact-checked draft. It checks:
 - **Depth:** matches the target on the 1 to 10 scale. Technical terms get a plain setup line.
 - **Structure:** one ask per question, arc flows, timing fits.
 
-Returns a marked-up list of changes. The Lead applies them.
+Returns a marked-up list of changes. The Lead applies them. Any change that alters a factual premise goes back to a fresh Fact Desk before delivery.
 
 ## Phase 6: Deliver (Lead)
 
@@ -106,7 +119,9 @@ Keep it short. No recap of the process.
 
 ## Revisions
 
-When the user edits a question, run only the Fact Desk and Editor on the changed question. When new guest input arrives, update the Brief first, then re-run the Question Desk on affected acts.
+When the user edits a question, run a fresh Fact Desk and a fresh Editor on the changed question, each as its own agent. When new guest input arrives, the Lead updates the Brief, then a Question Desk agent re-drafts the affected acts, then Fact Desk and Editor run on what changed.
+
+The delivery always states which desks ran as separate agents this run.
 
 ## Guest-facing versions
 
